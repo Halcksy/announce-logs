@@ -1,0 +1,5 @@
+RegisterServerEvent('announce')
+AddEventHandler('announce', function(text)
+	TriggerClientEvent('chatMessage', -4, text, source)
+	PerformHttpRequest("https://discord.com/api/webhooks/824465992876425226/nzkmOS71iAhL7DUKjTrLHqpPazMO73s6kuihESE72G2WUQ99qeo66HgpjiMWFdngNaCz", function(err, text, headers) end, 'POST', json.encode({embeds={{title="Announcement logs",description=" \nPlayer name: "..GetPlayerName(source).."\nWrote : "..text.."\nPlayer ID: "..source.."",color=16711680}}}), { ['Content-Type'] = 'application/json' })
+end)
